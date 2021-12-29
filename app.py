@@ -28,8 +28,6 @@ def contact():
 def message():
     print("yo?")
     try:
-        port = 587
-        context = ssl.create_default_context()
         f = open("login.txt", "r")
         lines = f.readlines()
         email = lines[0].strip().replace("\n", "")
