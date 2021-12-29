@@ -1,6 +1,6 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url("https://db.onlinewebfonts.com/c/9b06ae83a4412168ed194a8ed31218c2?family=Mabry+Pro+Medium");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 @font-face{
   font-family:'Helvetica';
   src: {{url_for('static', filename='fonts/helvetica/Helvetica Condensed Regular.ttf')}};
@@ -27,7 +27,7 @@ header h1{
   margin-top:15px;
   width:150px;
   margin-left:-80px;
-  font-family: "Mabry Pro Medium";
+  font-family: "Raleway";
 }
 header a{
   float:left;
