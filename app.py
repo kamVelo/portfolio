@@ -56,13 +56,12 @@ def getColours():
     opts = webdriver.ChromeOptions()
     opts.add_argument("--headless")
 
-    driver = Chrome(options = opts)
+    driver = Chrome(chrome_options = opts)
     driver.get("https://coolors.co/generate")
     url = driver.current_url
     while "generate" in url: # waits till page is fully loaded rather than returning faulty url
         url = driver.current_url
     driver.quit()
-
     colours = url.split('/')[-1].split('-')
     pairs = []
     for colour in colours:
