@@ -1,15 +1,17 @@
 from flask import Flask, render_template,redirect,request, session, url_for
 from bs4 import BeautifulSoup
 import requests as rq
+from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
+import smtplib, ssl
+from email.mime.text import MIMEText
 app = Flask(__name__)
 app.secret_key = "sadfljkf"
-# TODO: add github calendar
-# TODO: add more animated elements
-# TODO: add links to github projects themselves and also to websites where available
-# TODO: Consider emojis
-# TODO: multicolour projects?
-# TODO: pastel colours?
-# TODO: add typing text
+# TODO: add link to portfolio text in index.html
+
+
+
+
 
 @app.route("/")
 @app.route("/index/")
@@ -19,7 +21,60 @@ def home():
 def projects():
     return render_template("projects.html",repos=getProjects())
 
+@app.route("/contact/", methods=["GET","POST"])
+def contact():
+    return render_template("contact.html")
+@app.route("/messageData/",methods=["POST"])
+def message():
+    print("yo?")
+    try:
+        port = 587
+        context = ssl.create_default_context()
+        f = open("login.txt", "r")
+        lines = f.readlines()
+        email = lines[0].strip().replace("\n", "")
+        password = lines[1].strip().replace("\n", "")
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.connect("smtp.gmail.com",587)
+            server.starttls()
+            server.login(email, password) # email, password
+            server.set_debuglevel(1)
+            fName = request.form["fName"]
+            lName = request.form["lName"]
+            userEmail = request.form["email"]
+            msg = MIMEText(f"{fName} {lName}\n{userEmail}\n\n{request.form['message']}")
+            msg["Subject"] = "testing"
+            msg["To"] = "alikamel2004@hotmail.com"
+            msg["From"] = email
+            server.sendmail(from_addr=lines[0].strip().replace("\n", ""),to_addrs="alikamel2004@hotmail.com",msg=msg.as_string())
+    except:
+        return "404"
+    return "200"
+@app.route('/about/')
+def about():
+    return render_template("about.html")
+def getColours():
+    opts = Options()
+    opts.headless = True
 
+    driver = Chrome(options=opts)
+    driver.get("https://coolors.co/generate")
+    url = driver.current_url
+    while "generate" in url: # waits till page is fully loaded rather than returning faulty url
+        url = driver.current_url
+    driver.quit()
+
+    colours = url.split('/')[-1].split('-')
+    pairs = []
+    for colour in colours:
+        red = int(colour[0:2], 16)
+        green = int(colour[2:4], 16)
+        blue = int(colour[4:6], 16)
+        font = "edebe9" if (red*0.299 + green*0.587 + blue*0.114) < 186 else "010101"
+        icon = "githubSVG.svg" if (red * 0.299 + green * 0.587 + blue * 0.114) < 186 else "githubIconBlack.png"
+        pairs.append([colour,font,icon])
+    print(pairs)
+    return pairs
 
 def getProjects():
     url = "https://github.com/kamVelo?tab=repositories"
@@ -28,7 +83,11 @@ def getProjects():
     repos = list.findChildren("li", recursive=False)
     repo_dicts = []
     row = 0 # this will count how many rows down each respective project will be.
+    i = 0
+    colours = getColours()
     for repo in repos:
+        if i == 5:
+            i = 0
         repo_dict = {}
         info_block = repo.find("div", {"class": "col-10"})
         title = \
@@ -53,8 +112,12 @@ def getProjects():
         repo_dict["lang"] = language
         repo_dict["updated"] = updated
         repo_dict["side"] = ("right", "left")[row % 2 != 0]
+        repo_dict["colour"] = colours[i][0]
+        repo_dict["font"] = colours[i][1]
+        repo_dict['gitIcon'] = url_for("static",filename=f"img/{colours[i][2]}")
         repo_dicts.append(repo_dict)
         row += 1
+        i += 1
     return repo_dicts
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

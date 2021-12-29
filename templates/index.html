@@ -4,14 +4,37 @@
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+
   </head>
   <body>
     <header>
       <h2 id="headerTitle">Ali Kamel</h2>
-      
+      <ul id="menu">
+        <li class="menuitem"><a href="{{url_for('about')}}">About</a></li>
+        <li class="menuitem"><a href="{{url_for('projects')}}">Projects</a></li>
+        <li class="menuitem"><a href="{{url_for('contact')}}">Contact Me</a></li>
+      </ul>
     </header>
-    <h1 id="title" class="welcomeTxt">Hi There!</h1>
-    <h3 class="welcomeTxt">My name's Ali Kamel</h3>
-    <h2 class="welcomeTxt">This is my portfolio.</h2>
+    <main>
+      <h1 id="title" class="welcomeTxt animated animatedFadeInUp fadeInUp">Hi There!</h1>
+      <h3 class="welcomeTxt animated animatedFadeInUp fadeInUp">My name's Ali Kamel</h3>
+      <h2 class="welcomeTxt animated animatedFadeInUp fadeInUp" id="typingText"></h2>
+    </main>
+    <script type="text/javascript">
+      var i = 0;
+      var text = "This is my portfolio.";
+      var speed = 50; // number of milliseconds per letter
+
+      function type(){
+
+        if(i < text.length){
+          document.getElementById("typingText").innerHTML += text[i];
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      el = document.getElementById("typingText");
+      el.addEventListener("animationend", type);
+    </script>
   </body>
 </html>
