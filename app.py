@@ -7,7 +7,8 @@ from selenium import webdriver
 import smtplib, ssl
 from email.mime.text import MIMEText
 app = Flask(__name__)
-app.secret_key = "sadfljkf"
+from keys import Keys
+app.secret_key = Keys.get("secretKey")
 # TODO: add link to portfolio text in index.html
 
 
