@@ -1,0 +1,105 @@
+/*
+thematic colours:
+
+capitalism and freedom:
+golden-brown: #b09157
+white: #ffffff
+blue: #5bb3b8
+
+grimes:
+purple: #7a4e61;
+black: #010101
+white: #edebe9
+green: #6ab192
+
+*/
+
+/*font imports*/
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+/*styling rules*/
+html{
+  margin: 0;
+  padding: 0;
+  background-color: #edebe9;
+}
+body{
+  margin:0px;
+}
+.nostylelink{
+  text-decoration:none;
+}
+header{
+  width:100%;
+  text-align:center;
+  height:100px;
+}
+#goHome{
+  float:left;
+  font-family:"Pathway Gothic One";
+  color:#010101;
+  margin-left:20px;
+}
+#headTitle{
+  font-family: "Dela Gothic One";
+  color: #010101;
+}
+
+/* repos */
+main{
+  text-align:center;
+}
+
+.left{
+  text-align:left;
+  padding-left:10px;
+}
+.right{
+  text-align:right;
+  padding-right:10px;
+}
+.repo{
+  font-family:"Dela Gothic One";
+  display:block;
+  /*background-color:#edebe9;*/
+  /*color:#010101;*/
+  width:calc(75%);
+  min-height:200px;
+  margin:auto;
+  margin-bottom:10px;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+.repo:hover{
+  width: calc(77%);
+  height: 220px;
+}
+.repo .title{
+  margin:0px;
+}
+.repo .desc{
+  font-family: "Pathway Gothic One";
+  font-size:20px;
+}
+.gitIcon{
+  width:20px;
+  z-index:10;
+  cursor:pointer;
+  fill:white;
+
+}
+#refreshText{
+  font-family:"DM Serif Display", serif;
+}
+#refreshLink{
+  background-image:linear-gradient(#010101, #010101);
+  background-size : 0% 0.1em;
+  background-position-y:100%;
+  background-position-x:0%;
+  background-repeat:no-repeat;
+  transition:background-size 0.2s ease-in-out;
+  cursor:pointer;
+}
+#refreshLink:hover{
+  background-size:100% 0.1em;
+}

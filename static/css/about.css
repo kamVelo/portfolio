@@ -1,0 +1,49 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url("https://db.onlinewebfonts.com/c/9b06ae83a4412168ed194a8ed31218c2?family=Mabry+Pro+Medium");
+@font-face{
+  font-family:'Helvetica';
+  src: {{url_for('static', filename='fonts/helvetica/Helvetica Condensed Regular.ttf')}};
+}
+html {
+  padding:0px;
+  margin:0px;
+}
+body{
+  padding:0px;
+  margin:0px;
+}
+.nostylelink{
+  text-decoration:none;
+  color:inherit;
+}
+header{
+  text-align:center;
+  height:80px;
+}
+header h1{
+  display:inline;
+  position:absolute;
+  margin-top:15px;
+  width:150px;
+  margin-left:-80px;
+  font-family: "Mabry Pro Medium";
+}
+header a{
+  float:left;
+  margin-left:20px;
+  margin-top:20px;
+  font-size:18px;
+  font-family:'Anton';
+}
+main{
+  position:relative;
+}
+#content{
+  margin-top:60px;
+  margin-bottom:60px;
+  width:400px;
+  margin-left:auto;
+  margin-right:auto;
+  font-family:'Helvetica';
+}

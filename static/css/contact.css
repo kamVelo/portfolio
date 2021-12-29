@@ -1,0 +1,185 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@font-face{
+  font-family: 'Century Gothic';
+  url: '//static/fonts/century-gothic/Century Gothic.ttf';
+}
+.nostylelink{
+  text-decoration:none;
+  color:inherit;
+}
+html{
+  margin:0;
+  padding: 0;
+}
+body{
+  margin:0;
+  padding: 0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:#36454F;
+}
+header{
+  position:fixed;
+  text-align:center;
+  width:100%;
+  z-index:10;
+  background-color:black;
+  color:white;
+  height:81px;
+  font-family: 'Abril Fatface';
+  letter-spacing: 1px;
+}
+main{
+  top:80px;
+  height:100%;
+  width:100%;
+  font-family:'Cairo';
+  font-weight:400;
+  position:relative;
+}
+#contactusimg{
+  width:100%;
+  max-height:100%;
+  margin-bottom:-10px;
+}
+.welcomeTxt{
+  color:white;
+  position:absolute;
+  margin-left:40px;
+  font-family:'Oswald';
+}
+/* Animation */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,80px,0)
+    }
+
+    to {
+        transform: translate3d(0,40px,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,80px,0)
+    }
+
+    to {
+        transform: translate3d(0,40,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#details{
+  width:calc(50% - 20px);
+  padding-left:20px;
+  height:calc(100% - 78px);
+  display:inline-block;
+  float:left;
+  color:white;
+  font-family:'Playfair Display';
+}
+#details h1{
+  font-family:"Josefin Sans";
+}
+#detail{
+  font-size:20px;
+}
+#detailList{
+  list-style-type: none;
+}
+.nostylelink{
+  text-decoration: none;
+  color:inherit;
+}
+.underlineText{
+  background-image: linear-gradient(#010101,#010101);
+  background-size:0% 0.1em;
+  background-position-y:100%;
+  background-position-x:0%;
+  background-repeat:no-repeat;
+  transition: background-size 0.2s ease-in-out;
+  cursor:pointer;
+}
+.underlineText:hover{
+  background-size:100% 0.1em;
+}
+#emailFormContainer{
+  width:50%;
+  height:calc(100% - 78px);
+  display:inline-block;
+  float:right;
+  color:white;
+  font-family:'Playfair Display';
+}
+#emailFormContainer h1{
+  position:absolute;
+  margin-top:10px;
+  margin-left:30px;
+  font-family: "Montserrat";
+}
+#emailForm{
+  margin-top: 50px;
+  margin-left:20px;
+  height:50%;
+}
+#emailForm input,
+#emailForm label,
+#emailForm textarea{
+  margin:10px;
+  font-family:'Playfair Display';
+}
+#emailForm label{
+  display:block;
+}
+#emailForm textarea{
+  resize:none;
+  margin-right:10px;
+  width: calc(50vw - 100px);
+}
+#emailForm #submit{
+  margin-top:0px;
+  margin-left:40px;
+  border-radius:25px;
+  height:50px;
+  width: 87.5px;
+  outline:none;
+  border:1.5px solid black;
+}
+#emailForm #submit:hover{
+  background-color:transparent;
+  color:white;
+}
+#success{
+  position:absolute;
+  width:30px;
+  height:30px;
+  padding-top:15px;
+  margin-left: 10px;
+}

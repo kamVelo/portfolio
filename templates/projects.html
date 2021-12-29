@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/projects.css')}}">
+  </head>
+  <body>
+    <header>
+      <a href="{{url_for("home")}}" class="nostylelink"> <h3 id="goHome">Home</h3> </a>
+      <h1 id="headTitle">Projects</h1>
+    </header>
+    <main>
+      {% for repo in repos %}
+      <div   class="repo nostylelink  {{repo['side']}}" style="background-color:#{{repo['colour']}};color:#{{repo['font']}}">
+        <h2 class="title">{{repo["title"]}}</h2>
+        <p class="desc">{{repo["desc"]}}</p>
+        <p class="lang">{{repo["lang"]}}</p>
+        <p class="updated">Last Updated: {{repo["updated"]}}</p>
+        <img src="{{repo['gitIcon']}}" alt="" class="gitIcon" onClick="redirect('{{repo['title']}}')">
+      </div>
+      {% endfor %}
+      <p id="refreshText">The colours on this page are reassigned on each refresh. click <span id="refreshLink" onclick="refresh()">Here</span> to Refresh</p>
+    </main>
+
+    <script type="text/javascript">
+      function redirect (name) {
+        var url = "https://github.com/kamVelo/" + name;
+        window.open(url, "_blank")
+      }
+      function refresh (){
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>

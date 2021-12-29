@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/contact.css')}}">
+    <title>Contact Me</title>
+  </head>
+  <body onLoad="f();">
+    <header>
+      <h1><a href="{{url_for('home')}}" class="nostylelink">Ali Kamel</a></h1>
+    </header>
+    <main>
+      <h1 class="welcomeTxt animated animatedFadeInUp fadeInUp">Want To Get in Touch?</h1>
+      <div class="imgContainer">
+        <img id="contactusimg" src="{{url_for('static', filename='img/picture2.png')}}" alt="">
+      </div>
+      <div id="details">
+        <h1 id="detailsIntro">Here are my contact details:</h1>
+        <ul id="detailList">
+          <li class="detail">- Phone Number: +44 7849 222651</li>
+          <li class="detail">- Email: alikamel2004@hotmail.com</li>
+          <li class="detail">- Instagram: <a href="https://instagram.com/ali_big_t/" class="nostylelink underlineText" target="_blank" rel="noopener noreferrer">@ali_big_t</a></li>
+          <li class="detail">- Twitter: <a href="https://twitter.com/alikame48373398" class="nostylelink underlineText" target="_blank" rel="noopener noreferrer">ali kamel</a></li>
+          <li class="detail">- Github: <a href="https://github.com/kamVelo" class="nostylelink underlineText" target="_blank" rel="noopener noreferrer">kamVelo</a></li>
+        </ul>
+      </div>
+      <div id="emailFormContainer">
+        <h1>Get in Touch: </h1>
+        <form id="emailForm" name="emailForm" action="" method="POST" onsubmit="return false">
+          <input type="text" name="fName" placeholder="First Name" required>
+          <input type="text" name="lName" placeholder="Last Name" required>
+          <br>
+          <input type="text" name="email" placeholder="Email:" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="Invalid Email">
+          <br>
+          <label for="message">Message: </label>
+          <textarea name="message" rows="8" cols="75" required maxlength="2500" form="emailForm"></textarea>
+          <br>
+          <button type="submit" name="button" id="submit" onclick="sendData();">Send</button>
+          <img src="" alt="" id="success" onerror="this.style.display='none';">
+        </form>
+      </div>
+
+    </main>
+    <script type="text/javascript">
+      function f () {
+        window.scrollTo(0,0);
+      }
+      function sendData (){
+        var posting = $.post("{{url_for('message')}}", $("#emailForm").serialize());
+        posting.done(function () {
+          $("#emailForm").each(function (){
+            this.reset();
+          });
+          $("#success").attr('src', "{{url_for('static', filename='img/tick.gif')}}");
+          $("#success").css('display', 'inline');
+          setTimeout(function () {
+            $("#success").css('display', 'none');
+          },1250)
+        });
+      }
+    </script>
+  </body>
+</html>
