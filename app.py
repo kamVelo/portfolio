@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests as rq
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
 import smtplib, ssl
 from email.mime.text import MIMEText
 app = Flask(__name__)
@@ -52,10 +53,10 @@ def message():
 def about():
     return render_template("about.html")
 def getColours():
-    opts = Options()
-    opts.headless = True
+    opts = webdriver.ChromeOptions()
+    opts.add_argument("--headless")
 
-    driver = Chrome(options=opts)
+    driver = Chrome(options = opts)
     driver.get("https://coolors.co/generate")
     url = driver.current_url
     while "generate" in url: # waits till page is fully loaded rather than returning faulty url
