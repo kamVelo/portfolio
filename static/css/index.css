@@ -76,6 +76,13 @@ main{
   margin-left:0vw;
   transition: all 0.3s ease;
 }
+@media (max-width:600px){
+  .project{
+    width:70vw;
+    margin-left:15vw;
+    display:block;
+  }
+}
 .project:hover{
   cursor:pointer;
   transform:translate3D(1vw,2vh,0);
@@ -89,7 +96,7 @@ main{
   box-sizing:border-box;
   font-family:"Merriweather";
   font-weight:700;
-
+  font-size:2.5vh;
   margin:0;
 }
 .project .title h1{
@@ -102,7 +109,6 @@ main{
 .project .desc p{
   font-family:"Reem Kufi Ink";
 }
-
 .project .desc a{
   text-decoration:none;
   color:black;
