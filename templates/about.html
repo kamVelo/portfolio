@@ -3,29 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>About Me</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/about.css')}}">
   </head>
   <body>
     <header>
-      <h1>About Me</h1>
-      <a href="{{url_for('home')}}" class="nostylelink">home</a>
+      <a href="{{url_for('home')}}">Home</a>
     </header>
-    <main>
-      <p id="content">
-        I am a 17 year old Lower Sixth-Form A-Level Student in the UK studying A-Level Maths, Further Maths, Physics and Economics
-        as well as completing an EPQ. I take a very large interest in programming and in finance particularly
-        and find the intersection of the two very very engaging. I can programme in numerous languages including:
-        Python, C++, C#, Java and others. Furthermore, I enjoy the field of machine learning greatly, despite
-        its myriad complexities and spend lots of my free time learning and implementing machine learning
-        algorithms and concepts such as K-means classification and Artificial Neural Networks.
-        In terms of finance, whilst I find all areas interesting, somewhat predictably, I take a specific
-        interest in public equities. However, this is probably due more to the relative ease of participation
-        than to any sort of intellectual preference. I am incredibly eager to gain more professional
-        experience in both the fields of technology and programming, and finance. Moreover, I consistently
-        work and practice myself in both fields and so would relish the opportunity to make good use of my
-        skills.
-      </p>
+    <div class="container">
+      <div class="text section">
+        <h1>Who am I?</h1>
+        <p>I'm a 17 year-old sixth form student in my final year of secondary school at Leicester Grammar School. I'm studying for four A Levels: Maths, Further Maths, Physics and Economics. I'm also doing an Extended-Project-Qualification which you can learn more about on the home page. I'm interested in pursuing a career in finance or computing but ideally a combination of the two and ultimately I'd like to start my own fintech firm probably trading in complex financial products but thats a long way down my career path.</p>
+        <h1>My Interests:</h1>
+        <ul>
+          <li><span class="boldspan">Philosophy</span> - I've been focusing a lot on Nietzsche lately which has led me down really interesting intellectual paths with other philosophers too such as Schopenhauer.</li>
+          <li><span class="boldspan">Economics</span> - I'm interested in learning about market solutions to social problems facing developed countries and how we can reduce government involvement in the long run to a minimum through more effective policy. In addition, I'm academically passionate about the conflict between the Austrian and Chicago schools and Keynesian economics. Believing in the Austrian school myself, I'm interested in how individuals and small organisations can help to create decentralised systems based on the principles of voluntarism.</li>
+          <li><span class="boldspan">Machine Learning</span> - I've used machine learning in lots of my projects but I've mostly used it in a black-box fashion, so I'd really like to learn about different machine learning models especially those applied in sequential problems. I'd also really like to get to grips with the calculus involved in back-propagation.</li>
+          <li><span class="boldspan">Finance</span> - I'm fascinated by finance as a sector, I'm particularly enamoured by the financial engineering of standardised structures and products that solve very specific problems for a lot of agents and provide value to all parties. Reading "Money and Power" By William D. Cohan and learning about some of the traders involved in saving Goldman Sachs from massive losses in 2008 through their skillful use of complex financial products to position themselves strongly is absolutely awe-inspiring to me and only furthered my desire to pursue a career somehow intertwined with both finance and computing.</li>
+          <li><span class="boldspan">Engineering</span> - Designing and making things of all kinds is something I want to do a lot more of, when I have the time and the freedom such as in university, it's something I'm going to spend a lot of time doing.</li>
+        </ul>
+        <h1>My Hobbies:</h1>
+        <ul>
+          <li><span class="boldspan">Weightlifting</span> - PRs: Deadlift: 230Kg x 1 - Back Squat 180Kg x 5 - Bench Press: 115Kg</li>
+          <li><span class="boldspan">Rugby</span> - I play for my school, local club and Leicestershire county.</li>
+          <li><span class="boldspan">Reading</span> both non-fiction and fiction, although I prefer non-fiction especially about economics, politics and history.</li>
+          <li><span class="boldspan">Programming</span> - most of the programs on my "Projects" page are serious ones but I also do a lot of projects just for fun, like an arduino I programmed to play a clip of Robin Williams saying "Good Morning Vietnam!" every time somebody opened the fridge.</li>
+        </ul>
+      </div>
+      <div class="pic section">
+        <div class="imgContainer">
+            <img src="{{url_for('static', filename='img/slef.png')}}" alt="">
+        </div>
 
-    </main>
+
+      </div>
+
+    </div>
+
   </body>
 </html>

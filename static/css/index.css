@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
 html{
   margin: 0;
   padding: 0;
@@ -22,11 +24,16 @@ header{
   top:0;
 
 }
+.boldspan{
+  font-weight:bold;
+}
 #headerTitle{
   float:left;
   margin-left:20px;
   margin-top:30px;
-  font-family:"Abril Fatface";
+  font-family:"Source Sans Pro";
+  font-weight:600;
+  font-size:5.5vh;
   letter-spacing: 1px;
 }
 #menu{
@@ -47,13 +54,92 @@ header{
 }
 main{
   margin-top:120px;
+  padding-left:8vw;
 }
 .welcomeTxt{
-  margin-left:50px;
   color:#010101;
   font-family: "Fjalla One";
+}
+#typingText{
+  position:absolute;
+  margin-top:2vh;
+}
+
+.project{
+  width:24vw;
+  border-radius:5vw;
+  overflow:hidden;
+  height:48vh;
+  border:4px solid black;
+  margin-top:15vh;
+  display:inline-block;
+  margin-left:0vw;
+  transition: all 0.3s ease;
+}
+.project:hover{
+  cursor:pointer;
+  transform:translate3D(1vw,2vh,0);
+}
+
+.project .title{
+  width:24vw;
+  height:10vh;
+  padding-left:10%;
+  padding-top:7%;
+  box-sizing:border-box;
+  font-family:"Merriweather";
+  font-weight:700;
+
+  margin:0;
+}
+.project .title h1{
+  margin:0;
+}
+.project .desc{
+  padding-left: 3vw;
+  padding-right:2vw;
+}
+.project .desc p{
+  font-family:"Reem Kufi Ink";
+}
+
+.project .desc a{
+  text-decoration:none;
+  color:black;
+  display:inline-block;
+  position:relative;
+  padding-bottom:2px;
 
 }
+.project .desc a:before{
+  width:35%;
+  content:"";
+  height: 1px;
+  bottom: 0;
+  border-bottom: 1px solid black;
+  position:absolute;
+  transition:width 0.3s ease;
+}
+.project .desc a:hover:before{
+  width:100%;
+  content:"";
+  height: 1px;
+  bottom: 0;
+  border-bottom: 1px solid black;
+  position:absolute;
+}
+
+
+/* make full stop blink*/
+@keyframes blink {
+  50% {
+    opacity: 0.0;
+  }
+}
+.blinker {
+  animation: blink 1.25s step-start 0s infinite;
+}
+
 /* Animation */
 
 @keyframes fadeInUp {

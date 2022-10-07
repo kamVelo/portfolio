@@ -23,41 +23,15 @@ def home():
 def projects():
     return render_template("projects.html",repos=getProjects())
 
-@app.route("/contact/", methods=["GET","POST"])
-def contact():
-    return render_template("contact.html")
-@app.route("/messageData/",methods=["POST"])
-def message():
-    print("yo?")
-    try:
-        f = open("login.txt", "r")
-        lines = f.readlines()
-        email = lines[0].strip().replace("\n", "")
-        password = lines[1].strip().replace("\n", "")
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.connect("smtp.gmail.com",587)
-            server.starttls()
-            server.login(email, password) # email, password
-            server.set_debuglevel(1)
-            fName = request.form["fName"]
-            lName = request.form["lName"]
-            userEmail = request.form["email"]
-            msg = MIMEText(f"{fName} {lName}\n{userEmail}\n\n{request.form['message']}")
-            msg["Subject"] = "testing"
-            msg["To"] = "alikamel2004@hotmail.com"
-            msg["From"] = email
-            server.sendmail(from_addr=lines[0].strip().replace("\n", ""),to_addrs="alikamel2004@hotmail.com",msg=msg.as_string())
-    except:
-        return "404"
-    return "200"
 @app.route('/about/')
 def about():
     return render_template("about.html")
 def getColours():
-    opts = webdriver.ChromeOptions()
-    opts.add_argument("--headless")
-
-    driver = Chrome(chrome_options = opts)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    driver = Chrome(chrome_options = chrome_options)
     driver.get("https://coolors.co/generate")
     url = driver.current_url
     while "generate" in url: # waits till page is fully loaded rather than returning faulty url

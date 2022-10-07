@@ -12,28 +12,56 @@
       <ul id="menu">
         <li class="menuitem"><a href="{{url_for('about')}}">About</a></li>
         <li class="menuitem"><a href="{{url_for('projects')}}">Projects</a></li>
-        <li class="menuitem"><a href="{{url_for('contact')}}">Contact Me</a></li>
       </ul>
     </header>
     <main>
-      <h1 id="title" class="welcomeTxt animated animatedFadeInUp fadeInUp">Hi There!</h1>
-      <h3 class="welcomeTxt animated animatedFadeInUp fadeInUp">My name's Ali Kamel</h3>
+      <h3 class="welcomeTxt animated animatedFadeInUp fadeInUp">Hi, I'm an upper sixth form student from the UK.</h3>
       <h2 class="welcomeTxt animated animatedFadeInUp fadeInUp" id="typingText"></h2>
+      <div class="project" onclick="redir('invision')">
+        <div class="title">
+          <h1>RL Trader</h1>
+        </div>
+        <div class="desc">
+          <p>This is program designed to <span class="boldspan">automate trading public equities</span>with no user input. The program uses a deep reinforcement learning model to predict when it should buy, sell or hold a stock. The proprietary RL model is trained on approx. <span class="boldspan">2 years of data</span> from alphavantage. Crucially, using an RL model allows me to modulate the risk profile of the program with a few minor parameter changes. The RL Trader scrapes a finviz.com screener to find the best stocks to trade on the day and uses interactive brokers API to place orders.</p>
+        </div>
+      </div>
+      <div class="project" style="margin-left:5vw;" onclick="redir('agripod')">
+        <div class="title">
+          <h1>AgriPod</h1>
+        </div>
+        <div class="desc">
+          <p>The AgriPod is a product which <span class="boldspan">maximises fertiliser efficacy</span> for farmers by advising them on the best times to apply fertiliser. It was designed by a team of three with me in charge of software. We've designed the AgriPod for developing nations such as India where farmers don't have access to <span class="boldspan">costly, infrastructure-intensive</span>equipment found in developed nations. Our research suggests that we could <span class="boldspan">nearly double</span>fertiliser efficiency. To learn more, visit the <a href="https://www.agripod.co.uk/" target="_blank">AgriPod</a> website.</p>
+        </div>
+      </div>
+      <div class="project" style="margin-left:5vw;" onclick="redir('EPQ')">
+        <div class="title">
+          <h1>EPQ</h1>
+        </div>
+        <div class="desc">
+          <p>My Extended-Project-Qualification is a research project entitled <span class="boldspan">Can an automated hydroponic system replicate or exceed the quality of herbs grown in their native region?</span>. To explore this topic, I've designed and produced a deep-water-culture system and programmed an esp32 to optimise key conditions such as temperature and nutrient conditions. As well as this, I've produced a server so that the esp32 can log data measured from the system to ensure the ideal conditions are maintained.</p>
+        </div>
+      </div>
+
     </main>
     <script type="text/javascript">
+      var finishedText = false;
       var i = 0;
-      var text = "This is my portfolio.";
-      var speed = 50; // number of milliseconds per letter
-
+      var text = "These are my most interesting projects";
+      var speed = 35; // number of milliseconds per letter
+      el = document.getElementById("typingText");
       function type(){
 
         if(i < text.length){
-          document.getElementById("typingText").innerHTML += text[i];
+          el.innerHTML += text[i];
           i++;
           setTimeout(type, speed);
+        }else finishedText = true;
+        if(finishedText){
+          el.innerHTML += "<span class='blinker'>:</span>"
         }
       }
-      el = document.getElementById("typingText");
+
+
       el.addEventListener("animationend", type);
     </script>
   </body>

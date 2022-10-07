@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 @font-face{
   font-family: 'Century Gothic';
   url: '//static/fonts/century-gothic/Century Gothic.ttf';
@@ -33,7 +34,7 @@ header{
   background-color:black;
   color:white;
   height:81px;
-  font-family: 'Abril Fatface';
+  font-family: 'Source Sans Pro';
   letter-spacing: 1px;
 }
 main{

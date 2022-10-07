@@ -1,49 +1,79 @@
-/* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-@font-face{
-  font-family:'Helvetica';
-  src: {{url_for('static', filename='fonts/helvetica/Helvetica Condensed Regular.ttf')}};
-}
-html {
-  padding:0px;
-  margin:0px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Rashi+Hebrew:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
 body{
-  padding:0px;
-  margin:0px;
+  margin:0;
+  padding:0;
 }
-.nostylelink{
-  text-decoration:none;
-  color:inherit;
+div{
+  vertical-align:top;
+}
+.boldspan{
+  font-weight:bold;
 }
 header{
-  text-align:center;
-  height:80px;
+  position:fixed;
+  top:0;
+  width:100%;
+  height:6vh;
+  padding-top:2vh;
+  box-sizing:border-box;
 }
-header h1{
-  display:inline;
-  position:absolute;
-  margin-top:15px;
-  width:150px;
-  margin-left:-80px;
-  font-family: "Raleway";
-}
+
 header a{
-  float:left;
-  margin-left:20px;
-  margin-top:20px;
-  font-size:18px;
-  font-family:'Anton';
+  margin-right:4vw;
+  float:right;
+  font-size:1.5em;
+  color:black;
+  text-decoration:none;
 }
-main{
-  position:relative;
+
+.container{
+  width:100%;
+  height:100vh;
+  box-sizing:border-box;
+  font-size:0;
+  top:-6vh;
 }
-#content{
-  margin-top:60px;
-  margin-bottom:60px;
-  width:400px;
-  margin-left:auto;
-  margin-right:auto;
-  font-family:'Helvetica';
+
+.section{
+  display:inline-block;
+  box-sizing:border-box;
+
+}
+
+.pic{
+  width:35%;
+  height:100%;
+  background-color:lightgray;
+}
+.pic img{
+
+    width:calc(0.75 * 35vw);
+    margin-top:23vh;
+    margin-left:calc(0.125 * 35vw);
+}
+
+.text{
+  width:calc(65% );
+  height:100%;
+  background-color:#5D9AD6;
+  font-size:1.9vh;
+  padding:10vmax;
+  padding-top:6vh;
+  padding-left:6vw;
+  color:#E5EBF0;
+}
+.text p .text h1{
+  margin:0;
+  padding:0;
+}
+
+.text h1{
+  font-family:"Noto Rashi Hebrew";
+  font-weight:600;
+}
+.text p .text li{
+  font-family: "Merriweather";
+  padding:1vmin;
 }
