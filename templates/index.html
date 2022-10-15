@@ -61,35 +61,22 @@
         }
       }
 
-      function redir(text){
-        window.location.href = "https://github.com/kamvelo/" + text;
-      }
-
       function fontResize(){
-        var section = document.getElementsByClassName("project")[0];
-        var text = document.getElementsByClassName("desc");
-        var width = section.clientWidth;
-        var height = section.clientHeight;
-
-        if(width < height + 30 ){
-          if (width > 250){
-            fontsize = 0.0305 * width;
-            console.log("hello");
-          }else if(width < 250){
-            fontsize = 0.0305 * width;
-            console.log("now");
-          }
+        descs = document.getElementsByClassName("desc");
+        width = window.innerWidth;
+        height = window.innerHeight;
+        console.log(width);
+        console.log(height);
+        avgRatio = ((width/1903) + (height/969)) / 2
+        fontSize = 1.08*avgRatio;
+        console.log(fontSize);
+        for(var i = 0; i < descs.length; i++){
+          descs[i].style.fontSize = fontSize + "em";
         }
-        else if(width > 300 && width < height + 50) fontsize = 0.0335*width;
-        else fontsize = 0.0305 * height;
-        for(var i = 0; i < text.length; i++){
-            text[i].style.fontSize = fontsize + "px";
-        }
-
       }
 
       el.addEventListener("animationend", type);
-      window.addEventListener("resize", fontfontResize());
+      window.addEventListener("resize", fontResize());
 
     </script>
   </body>
